@@ -1,3 +1,3 @@
 class Inquiry < ApplicationRecord
-    belongs_to :Pet
+    belongs_to :pet
 end
