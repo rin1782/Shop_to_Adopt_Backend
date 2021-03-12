@@ -12,3 +12,9 @@ and the syntax is correct, but it was unable to process the instructions
 fast_jsonapi gem gives you access to serializer generator
 
 **Don't NEED serializer for js project, but it is something you want
+because it becomes more helpful as your projects API starts to get more complex
+and it gives you more specificity in nested objects not just one large array,
+you will want the attributes KEY
+
+        ***ADD THE :PET MACRO TO GAIN ACCESS TO OBJECTS IN THAT ASSOCIATION
+        WITH ONE FETCH CALL BY "attributes.pet.name" <can access because of serializer

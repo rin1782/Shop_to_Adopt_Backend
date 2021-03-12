@@ -1,4 +1,4 @@
 class InquirySerializer
   include FastJsonapi::ObjectSerializer
-  attributes 
+  attributes :comment, :pet_id, :pet
 end

@@ -2,7 +2,7 @@ class Api::V1::InquiriesController < ApplicationController
 
     def index
         inquiries = Inquiry.all
-        render json: inquiries
+        render json: InquirySerializer.new(inquiries)
     end
 
     def create
