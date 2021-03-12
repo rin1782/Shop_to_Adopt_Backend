@@ -8,3 +8,7 @@ client on the front end if this request was rejected or accepted and why
             **STATUS CODES**
 *unprocessible_entity means the server understands the content of the request
 and the syntax is correct, but it was unable to process the instructions
+
+fast_jsonapi gem gives you access to serializer generator
+
+**Don't NEED serializer for js project, but it is something you want
