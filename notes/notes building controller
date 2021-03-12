@@ -1,0 +1,10 @@
+***Notes building Inquiry Controller***
+
+in the create action, if the inquiry saves, we want to render
+the json for that inquiry variable, and we add status: :accepted 
+to allow us to send status codes with our fetch request telling the
+client on the front end if this request was rejected or accepted and why
+
+            **STATUS CODES**
+*unprocessible_entity means the server understands the content of the request
+and the syntax is correct, but it was unable to process the instructions
