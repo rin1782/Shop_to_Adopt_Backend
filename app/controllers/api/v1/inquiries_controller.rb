@@ -3,22 +3,27 @@ class Api::V1::InquiriesController < ApplicationController
 
     def index
         inquiries = Inquiry.all
-        render json: InquirySerializer.new(inquiries)
+        render json: inquiries.arr_to_json
+    end
+
+    def show
+        @inquiry
+        render json: @inquiry.instance_to_json
     end
 
     def create
-        inquiry = Inquiry.new(inquiry_params)
-        if inquiry.save
-            render json: inquiry, status: :accepted
+        inquiry = Inquiry.create(inquiry_params)
+        if inquiry.save   
+            render json: inquiry.instance_to_json
         else 
             render json: {errors: inquiry.errors.full_messages}, status: :unprocessible_entity
         end
     end
 
     def update
-        @inquiry.update(inquiry_params)
+        @inquiry.update(saves:params[:saves])
         if @inquiry.save
-          render json: @inquiry, status: :accepted
+          render json: @inquiry.instance_to_json
         else
           render json: { errors: @inquiry.errors.full_messages }, status: :unprocessible_entity
         end
@@ -27,7 +32,7 @@ class Api::V1::InquiriesController < ApplicationController
     private
 
     def inquiry_params
-        params.require(:inquiry).permit(:comment, :pet_id)
+        params.require(:inquiry).permit(:comment, :pet_id, :pet, :saves)
     end
 
     def find_inquiry
